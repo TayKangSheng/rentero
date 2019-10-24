@@ -14,6 +14,9 @@ class Users::RegistrationsController < ApplicationController
     end
   end
 
+  def karma
+  end
+
   private
 
     def signup_params
