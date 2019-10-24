@@ -29,6 +29,7 @@ html
             ul.navbar-nav
               li.nav-item.dropdown
                 a.nav-link.dropdown-toggle#navbarDropdown href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  = current_user.name.humanize
                 div.dropdown-menu.dropdown-menu-right aria-labelledby="navbarDropdown"
                   = link_to "Karma", karma_path, class: "dropdown-item"
                   <div class="dropdown-divider"></div>
