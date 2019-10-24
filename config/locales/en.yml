@@ -36,7 +36,5 @@ en:
     registration:
       submit: "Sign Up"
       confirm_email: "Please verify your email address by clicking on the linked sent to the email used for registration."
-  helpers:
-    submit:
-      signin:
-        submit: "Sign In"
+    sessions:
+      submit: "Sign In"

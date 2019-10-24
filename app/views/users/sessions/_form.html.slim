@@ -1,8 +1,4 @@
-= form_for :signin do |f|
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :password
-    = f.password_field :password
-  .actions = f.submit
+= bootstrap_form_for(@user, url: signin_path) do |f|
+  = f.text_field :name, value: @user.name
+  = f.password_field :password
+  = f.submit t("user.sessions.submit")
