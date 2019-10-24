@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    render :index, locals: {}
+    if current_user
+      redirect_to loanables_path
+    else
+      render :index, locals: {}
+    end
   end
 end
