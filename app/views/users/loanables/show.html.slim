@@ -1,16 +1,21 @@
+h1 = @loanable.title 
 p
-  strong Title:
-  = @loanable.title
-p
-  strong Description:
+  strong Description:&nbsp;
   = @loanable.description
 p
-  strong Location:
+  strong Location:&nbsp;
   = @loanable.location
 p
-  strong Contact:
+  strong Contact:&nbsp;
   = @loanable.contact
+p
+  strong End Date Time:&nbsp;
+  = local_time(@loanable.end) if @loanable.end
 
-=> link_to 'Edit', edit_users_loanable_path(@loanable)
+img.card-img src="http://www.diagonalthoughts.com/wp-content/uploads/2009/09/standard_gauge_-_morgan_fisher-1a_1.jpg"  alt="..." style="max-width:512px;"
+
+hr
+
+=> link_to 'Edit', edit_users_loanable_path(@loanable), class: "btn btn-light"
 '|
-=< link_to 'Back', users_loanables_path
+=< link_to 'Back', users_loanables_path, class: "btn btn-dark"

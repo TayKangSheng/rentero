@@ -1,21 +1,22 @@
 h1 = @loanable.title
-p
-  strong description
-  <br>
-  = @loanable.description
 
 p
-  strong location
-  <br>
+  strong Description:&nbsp;
+  = @loanable.description
+p
+  strong Location:&nbsp;
   = @loanable.location
 p
-  strong contact
-  <br>
+  strong Contact:&nbsp;
   = @loanable.contact
 p
-  strong end time
-  <br>
-  = local_time(@loanable.end) if @loanable
+  strong Owner:&nbsp;
+  = @loanable.user.name
+p
+  strong End Date Time:&nbsp;
+  = local_time(@loanable.end) if @loanable.end
+
+img.card-img src="http://www.diagonalthoughts.com/wp-content/uploads/2009/09/standard_gauge_-_morgan_fisher-1a_1.jpg"  alt="..." style="max-width:512px;"
 
 <hr>
 
