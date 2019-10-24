@@ -7,7 +7,7 @@ class LoanablesController < ApplicationController
   end
 
   def show
-
+    @loan_contract = @loanable.loan_contracts.new(start: Time.zone.now, end: @loanable.end)
   end
 
   private

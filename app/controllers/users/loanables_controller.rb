@@ -70,6 +70,6 @@ class Users::LoanablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loanable_params
-      params.require(:loanable).permit(:title, :description, :location, :contact)
+      params.require(:loanable).permit(:title, :description, :location, :contact, :end)
     end
 end

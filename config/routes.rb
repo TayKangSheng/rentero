@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :loanables
   end
 
-  resources :loanables, only: [:index, :show]
+  resources :loanables, only: [:index, :show] do
+    resources :loan_contracts, only: [:create], module: :loanables
+  end
 
   get "/signup", to: "users/registrations#new", as: "signup"
   post "/signup", to: "users/registrations#create"

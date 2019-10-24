@@ -1,3 +1,27 @@
 h1 = @loanable.title
+p
+  strong description
+  <br>
+  = @loanable.description
 
-p = @loanable.description
+p
+  strong location
+  <br>
+  = @loanable.location
+p
+  strong contact
+  <br>
+  = @loanable.contact
+p
+  strong end time
+  <br>
+  = local_time(@loanable.end) if @loanable
+
+<hr>
+
+h2 Loan Form
+
+= bootstrap_form_for(@loan_contract, url: loanable_loan_contracts_path(@loanable)) do |f|
+  = f.datetime_field :start, min: Time.zone.now
+  = f.datetime_field :end, max: @loanable.end
+  = f.primary "loan"

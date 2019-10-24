@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_063403) do
+ActiveRecord::Schema.define(version: 2019_10_24_080653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "loan_contracts", force: :cascade do |t|
+    t.datetime "start", null: false
+    t.datetime "end", null: false
+    t.bigint "loanable_id", null: false
+    t.bigint "borrower_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["borrower_id"], name: "index_loan_contracts_on_borrower_id"
+    t.index ["loanable_id"], name: "index_loan_contracts_on_loanable_id"
+  end
 
   create_table "loanables", force: :cascade do |t|
     t.string "title"
@@ -36,5 +47,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_063403) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "loan_contracts", "loanables"
+  add_foreign_key "loan_contracts", "users", column: "borrower_id"
   add_foreign_key "loanables", "users"
 end
