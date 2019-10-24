@@ -1,0 +1,16 @@
+p
+  strong Title:
+  = @loanable.title
+p
+  strong Description:
+  = @loanable.description
+p
+  strong Location:
+  = @loanable.location
+p
+  strong Contact:
+  = @loanable.contact
+
+=> link_to 'Edit', edit_users_loanable_path(@loanable)
+'|
+=< link_to 'Back', users_loanables_path

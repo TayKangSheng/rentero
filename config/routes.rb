@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
   root 'home#index'
 
   namespace :admin do
     resources :users
+  end
+
+  namespace :users do
+    resources :loanables
   end
 
   get "/signup", to: "users/registrations#new", as: "signup"

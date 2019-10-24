@@ -1,0 +1,19 @@
+h1 Listing loanables
+
+br
+
+- @loanables.each do |l|
+  a.loanable href=users_loanable_path(l)
+    div.card.mb-12
+      div.row.no-gutters
+        div.col-md-3
+          img.card-img src="https://cdn0.wideopenpets.com/wp-content/uploads/2016/01/bigstock-White-horse-run-94035155.jpg"  alt="..."
+        div.col-md-9
+          div.card-body
+            h5.card-title = l.title.humanize
+            p.card-text = l.description.humanize
+            p.card-text
+              = link_to 'Edit', edit_users_loanable_path(l)
+              = link_to 'Destroy', users_loanable_path(l), data: { confirm: 'Are you sure?' }, method: :delete
+
+= link_to 'New Loanable', new_users_loanable_path

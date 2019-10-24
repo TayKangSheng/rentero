@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
       @current_user ||= nil
     end
   end
+
+  def authenticate_user
+    if current_user
+    else
+      flash[:alert] = "you need to be signed in"
+      redirect_to root_url
+    end
+  end
 end
