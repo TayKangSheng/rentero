@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_063403) do
     t.text "description"
     t.string "location"
     t.string "contact"
+    t.datetime "end"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

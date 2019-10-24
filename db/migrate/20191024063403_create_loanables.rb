@@ -5,6 +5,7 @@ class CreateLoanables < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :location
       t.string :contact
+      t.datetime :end
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
