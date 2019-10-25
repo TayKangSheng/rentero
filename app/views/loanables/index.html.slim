@@ -13,15 +13,12 @@ h1 All Loanables
             p.card-text
               strong Description:&nbsp;
               = l.description
-            p.card-text
+              br
               strong Location:&nbsp;
               = l.location
-            p.card-text
-              strong Owner:&nbsp;
-              = l.user.name
-            p.card-text
+              br
               strong Contact:&nbsp;
               = l.contact
-            p.card-text
+              br
               strong End Available Date:&nbsp;
               = local_time(l.end) if l.end
