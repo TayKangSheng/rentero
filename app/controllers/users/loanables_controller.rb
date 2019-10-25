@@ -5,7 +5,7 @@ class Users::LoanablesController < ApplicationController
   # GET /loanables
   # GET /loanables.json
   def index
-    @loanables = current_user.loanables.all
+    @loanables = current_user.loanables.includes(:loan_contracts).all
   end
 
   # GET /loanables/1
@@ -43,7 +43,7 @@ class Users::LoanablesController < ApplicationController
   def update
     respond_to do |format|
       if @loanable.update(loanable_params)
-        format.html { redirect_to @loanable, notice: 'Loanable was successfully updated.' }
+        format.html { redirect_to [:users, @loanable], notice: 'Loanable was successfully updated.' }
         format.json { render :show, status: :ok, location: @loanable }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class Users::LoanablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loanable_params
-      params.require(:loanable).permit(:title, :description, :location, :contact, :end)
+      params.require(:loanable).permit(:title, :description, :location, :contact, :end, :state)
     end
 end

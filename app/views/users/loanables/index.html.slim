@@ -1,14 +1,17 @@
 h1 My Loanables
 
-= link_to 'New Loanable', new_users_loanable_path, class: "btn btn-primary"
+p = link_to 'New Loanable', new_users_loanable_path, class: "btn btn-primary"
+
+hr
 
 table.table.table-borderless
   tbody
     th
       tr
         th style="width: 80%"
+          h2 Available
         th style="width: 20%"
-    - @loanables.each do |l|
+    - @loanables.reject { |l| l.loan_contracts.count > 0 }.each do |l|
       tr
         td
           a.loanable href=users_loanable_path(l)
@@ -32,6 +35,48 @@ table.table.table-borderless
                       br
                       strong End Available Date:&nbsp;
                       = local_time(l.end) if l.end
+
+        td
+          = link_to 'Edit', edit_users_loanable_path(l), class: "btn btn-light"
+          <br>
+          = link_to 'Destroy', users_loanable_path(l), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-dark"
+
+hr
+
+table.table.table-borderless
+  tbody
+    th
+      tr
+        th style="width: 80%"
+          h2 On Loan
+        th style="width: 20%"
+    - @loanables.select { |l| l.loan_contracts.count > 0 }.each do |l|
+      tr
+        td
+          a.loanable href=users_loanable_path(l)
+            .card
+              .row.no-gutters
+                .col-md-4
+                  img.card-img src="http://www.diagonalthoughts.com/wp-content/uploads/2009/09/standard_gauge_-_morgan_fisher-1a_1.jpg" alt="..."
+                .col-md-8
+                  .card-body
+                    h5.card-title
+                      = l.title.titleize
+                    p.card-text
+                      strong Description:&nbsp;
+                      = l.description
+                      br
+                      strong Location:&nbsp;
+                      = l.location
+                      br
+                      strong Contact:&nbsp;
+                      = l.contact
+                      br
+                      strong End Available Date:&nbsp;
+                      = local_time(l.end) if l.end
+                      br
+                      strong State:&nbsp;
+                      = l.state
 
         td
           = link_to 'Edit', edit_users_loanable_path(l), class: "btn btn-light"
