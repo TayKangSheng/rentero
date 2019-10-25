@@ -1,6 +1,15 @@
 h1 Editing loanable
 
-== render 'form'
+= bootstrap_form_for(@loanable, url: users_loanable_path) do |f|
+  = f.text_field :title
+  = f.text_area :description
+  = f.text_field :location
+  = f.text_field :contact
+  = f.datetime_field :end
+  - if @loanable.loan_contracts.count > 0
+    = f.text_field :state
+  = f.primary
+
 
 => link_to 'Show', @loanable, class: "btn btn-light"
 '|
