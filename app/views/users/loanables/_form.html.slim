@@ -4,6 +4,7 @@
   = f.text_field :location
   = f.text_field :contact
   = f.datetime_field :end
+  = f.string :url
   - if @loanable.loan_contracts.count > 0
     = f.text_field :state
   = f.primary

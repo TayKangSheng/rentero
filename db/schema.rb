@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_022210) do
+ActiveRecord::Schema.define(version: 2019_10_25_033519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_022210) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "state", default: "waiting for collection"
+    t.string "url", default: "http://www.diagonalthoughts.com/wp-content/uploads/2009/09/standard_gauge_-_morgan_fisher-1a_1.jpg"
     t.index ["user_id"], name: "index_loanables_on_user_id"
   end
 
