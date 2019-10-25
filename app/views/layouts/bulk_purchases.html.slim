@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title Rentero
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag  "application"
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    header
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand href=root_path
+          = t("application.name")
+        button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+          span.navbar-toggler-icon
+
+        div.collapse.navbar-collapse#navbarSupportedContent
+          - if current_user
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                = link_to "My Loanables", users_loanables_path, class: "nav-link"
+              li.nav-item
+                = link_to "Bulk Purchases", bulk_purchases_path, class: "nav-link"
+              li.nav-item
+                = link_to "Loaned", users_loaned_path, class: "nav-link"
+            ul.navbar-nav
+              li.nav-item.dropdown
+                a.nav-link.dropdown-toggle#navbarDropdown href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  = current_user.name.humanize
+                div.dropdown-menu.dropdown-menu-right aria-labelledby="navbarDropdown"
+                  = link_to "Karma", karma_path, class: "dropdown-item"
+                  <div class="dropdown-divider"></div>
+                  = link_to "Sign Out", signout_path, method: :delete, class: "dropdown-item"
+          - else
+            ul.navbar-nav.mr-auto
+            ul.navbar-nav
+              li.nav-item
+                = link_to "Sign Up", signup_path, class: "nav-link"
+              li.nav-item
+                = link_to "Sign In", signin_path, class: "nav-link"
+
+    .container-fluid
+      <br>
+      - flash.each do |name, msg|
+        - if name == "alert"
+          = content_tag :div, msg, class: "alert alert-danger"
+        - else
+          = content_tag :div, msg, class: "alert alert-info"
+
+      = yield
