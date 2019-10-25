@@ -22,7 +22,7 @@ Our app is centered around helping our users address these questions:
 - Does what I do have any impact?
 - What is everyone else doing to contribute to society?
 
-[ Rentals ]
+## Rentals
 
 Lets begin with this scenario, I need a ladder to hang up some decorations tomorrow for diwali... must I really buy one? 
 Every year we will go full Marie Kondo, throwing things that doesn't spark joy for us but what if we could spark this joy for another person? 
@@ -31,11 +31,9 @@ Throwing is not a sustainable solution to decluttering, renting is.
 Rental helps us as a society to be more sustainable, save space and save money. The current take-make-waste economy is not practical at all. 
 We need to shift our mindset from paying for ownership of goods, to paying for access to goods.
 
-- Show main screen of our app. Need design that will easily convey what we are trying to achieve, sustainabilty through rental
-
 This is where EcoLoremIpsum comes in. We aim to show the world that we as a society are ready to make a change. Nicholas will now show you the future
 
-### Demo
+## Demo
 
 EcoLoremIpsum focuses on living communities. 
 It allows us ordinary folk to put items up for rental for others in our neighbourhood.
