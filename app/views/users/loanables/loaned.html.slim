@@ -1,0 +1,26 @@
+h1 I loaned
+
+- @loanables.each do |l|
+  div.card.mb-12
+    div.row.no-gutters
+      div.col-md-3
+        img.card-img src="http://www.diagonalthoughts.com/wp-content/uploads/2009/09/standard_gauge_-_morgan_fisher-1a_1.jpg"  alt="..."
+      div.col-md-9
+        .card-body
+          h5.card-title
+            = l.title.titleize
+          p.card-text
+            strong Description:&nbsp;
+            = l.description
+            br
+            strong Location:&nbsp;
+            = l.location
+            br
+            strong Contact:&nbsp;
+            = l.contact
+            br
+            strong End Available Date:&nbsp;
+            = local_time(l.end) if l.end
+            br
+            strong State:&nbsp;
+            = l.state

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :users do
     resources :loanables
+    get "loaned", to: "loanables#loaned", as: "loaned"
   end
 
   resources :loanables, only: [:index, :show] do

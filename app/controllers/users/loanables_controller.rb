@@ -62,6 +62,10 @@ class Users::LoanablesController < ApplicationController
     end
   end
 
+  def loaned
+    @loanables = Loanable.joins(:loan_contracts).where("loan_contracts.borrower_id = ?", current_user.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_loanable
